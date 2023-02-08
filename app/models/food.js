@@ -17,7 +17,6 @@ const foodSchema = new mongoose.Schema(
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
-			required: true,
 		},
 	},
 	{
@@ -28,7 +27,7 @@ const foodSchema = new mongoose.Schema(
 )
 
 foodSchema.virtual('fullTitle').get(function () {
-	return `${this.title} is a ${this.type} and it costs: $${this.cost}`
+	return `${this.title} is a ${this.type} product and it costs: $${this.cost}`
 })
 
 module.exports = mongoose.model('Food', foodSchema)
