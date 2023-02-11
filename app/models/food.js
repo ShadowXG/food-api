@@ -1,12 +1,14 @@
 const mongoose = require('mongoose')
 
+const dishSchema = require('./dish')
+
 const foodSchema = new mongoose.Schema(
 	{
-		title: {
+		name: {
 			type: String,
 			required: true,
 		},
-		type: {
+		category: {
 			type: String,
 			required: true,
 		},
@@ -14,6 +16,7 @@ const foodSchema = new mongoose.Schema(
 			type: Number,
 			required: true
 		},
+		dishes: [dishSchema],
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
@@ -27,7 +30,7 @@ const foodSchema = new mongoose.Schema(
 )
 
 foodSchema.virtual('fullTitle').get(function () {
-	return `${this.title} is a ${this.type} product and it costs: $${this.cost}`
+	return `${this.name} is a ${this.category} product and it costs: $${this.cost}`
 })
 
 module.exports = mongoose.model('Food', foodSchema)

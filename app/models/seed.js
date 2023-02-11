@@ -7,10 +7,11 @@ const Food = require('./food')
 const db = require('../../config/db')
 
 const startFoods = [
-    { title: 'Pizza', type: 'Mixed', cost: 20},
-    { title: 'Donut', type: 'Desert', cost: 5},
-    { title: 'Bread', type: 'Dairy', cost: 10},
-    { title: 'Lobster', type: 'Seafood', cost: 30}
+    { name: 'Grape', category: 'Fruit', cost: 20},
+    { name: 'Peanut', category: 'Nut', cost: 5},
+    { name: 'Steak', category: 'Meat', cost: 30},
+    { name: 'Lobster', category: 'Seafood', cost: 30},
+    { name: 'Chicken', category: 'Meat', cost: 20}
 ]
 
 // first we connect to the db 
